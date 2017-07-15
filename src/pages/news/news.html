@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      News for {{currentSource}}
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let article of (articles$ | async)?.articles">
+    <img [src]="article.urlToImage" />
+    <ion-card-content>
+      <ion-card-title>
+        <a [href]="article.url" target="_news-{{article.id}}">
+          {{article.title}}
+        </a>
+      </ion-card-title>
+      <p>
+        {{article.description}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
